@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+//push 作用：在数组的末尾添加一个或多个数组
+    var arr=[];
+    arr.push(1,2,3,4,5);
+    console.log(arr); //输出值为1,2,3,4,5
+
+//pop() 删除掉数组的最后一个元素
+    var arr=[1,2,3,4,5];
+    arr.pop();
+    console.log(arr); //输出值为[1,2,3,4]
+
+//unshift() 在数组的开始位置添加一个或者多个元素
+    var arr=[1,2,3,4,5];
+    arr.unshift(1);
+    console.log(arr);//输出值为[1,1,2,3,4]
+
+// shift() 在数组的开始位置删除一个元素
+    var arr=[1,2,3,4,5];
+    arr.shift();
+    console.log(arr);//输出值为[2,3,4,5]
+
+//   splice() 万能的添加删除方法
+// * 第一个参数 操作的位置
+// * 第二个参数 要删除的个数
+// * 后续的参数 表示要添加的内容
+     var arr=[1,2,3,4,5];
+     arr.splice(2,1,"hellow");
+     console.log(arr);
+//  join() 将数组转化为字符串
+    var arr=[1,2,3,4,5];
+    var a=arr.join("*");
+    console.log(a);//输出值为1*2*3*4*5
+// concat 将多个数组合并为一个 对于原数组没有任何影响
+    var arr1=[1,2,3];
+    var arr2=[4,5,6];
+    var newarr=arr1.concat(arr2);
+    console.log(newarr);//输出结果为[1,2,3,4,5,6]
+// slice 从数组中截取指定内容返回 不会影响原数组
+    var arr=[1,2,3,4,5];
+    var b=arr.slice(2);//输出结果为[3,4,5]  从开始到结束都会截取
+    console.log(b);
+// sort 给数组实现排序的功能 会影响数组本身的
+    var arr=[11,22,13,45,25];
+    var b=arr.sort();
+    console.log(b);//输出结果为 [11, 13, 22, 25, 45]
+// forEach方法
+    var arr=[20,32,54,78,94,65];
+    var newarr=[];
+    Array.prototype.myforEach=function (callback) {
+        for(var i=0;i<this.length;i++){
+           callback(this[i]);
+        }
+    };
+    arr.myforEach(function (v) {
+       console.log(v);    //结果为 [20,32,54,78, 94, 65]
+    });
+
+// filter方法  用于过滤
+    var arr=[20,32,54,78,94,65];
+    var newarr=[];
+    Array.prototype.myfilter=function (callback) {
+    for(var i=0;i<this.length;i++){
+        if(this[i]>80){
+           callback(this[i]);
+        }
+    }
+};
+    arr.myfilter(function (v) {
+    console.log(v)//结果为 [ 94]
+});
+
+
+// map 映射
+    var arr=[1,2,3,4,5];
+    var newarr=[];
+    Array.prototype.mymap=function (callback) {
+        for(var i=0;i<this.length;i++){
+            callback(this[i]*this[i]);
+        }
+    };
+    arr.mymap(function (v) {
+        console.log(v)//结果为 1, 4, 9, 16, 25
+    });
+
+
+//  some 判断是否有这个值
+    var arr=[45,62,84,90];
+    var result=arr.some(function (v) {
+        if(v===90){
+            return true;
+        }else{
+            return false;
+        }
+    });
+    console.log(result);
+// every 判断所有条件都满足
+    var arr=[45,62,84,90];
+    var result=arr.every(function (v) {
+        if(v>60){
+            return true;
+        }else{
+            return false;
+        }
+    });
+    console.log(result);
+
+//find() 根据我们设置的条件进行查找，如果有满足条件的 就把这个值返回
+    var arr=[1,2,3,4,5];
+    var r=arr.find(function (v) {
+        if(v*v===4){
+            return true;
+        }
+    })
+    console.log(r);
+//fill()
+//作用 对于数组里面的空值进行一个填充 吧数组中的空值填充为某个值
+//返回值 填充后的数组
+//参数 第一个填充内容 第二个填充开始位置 第三个 填充结束位置
+     var arr=[1,2,3,,5,6];
+     var newarr=arr.fill(1,3,4);
+     console.log(newarr);
+
+//copyWithIn()
+//作用：用数组的某一部分替换掉另一部分
+//返回值 替换后的数组
+//参数：需要替换的目标 复制起始位置 复制结束位置
+     var arr=[1,2,3,4,5,6];
+     arr.copyWithin(0,2,3);
+     console.log(arr);
+
+//includes()
+//作用：用来判断数组当中是否包含某个值的方法
+//返回值：如果包含 返回true
+     var arr=[1,2,3,4,5,6];
+     var r=arr.includes(2);
+     console.log(arr);
+    console.log(r);
+
+</script>
+</html>
