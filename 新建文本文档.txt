@@ -1,1 +1,202 @@
-1231231
+<!--push-->
+    <!--在数组的末尾添加一个或者一个或者多个元素-->
+    <!--返回的值是数组的长度-->
+    var num=[1,2,3];
+    num.push(4,5,6);
+    console.log(num);/*值[1,2,3,4,5,6]*/
+
+
+    /*pop*/
+    /*删除掉数组的最后一个元素*/
+//    返回的值是删掉的那个
+    var num=[1,2,3];
+    num.pop();
+    console.log(num);/*值[1,2]*/
+
+//    undshift
+//    在数组的开始位置添加一个或者多个元素
+//    返回的值是新数组
+    var num=[1,2,3];
+    num.unshift(1);
+    console.log(num);/*值是1,1,2,3*/
+
+//    shift
+//    在数据的开始位置删除一个元素
+//    返回值是删掉的元素
+    var num=[1,2,3];
+    num.shift();
+    console.log(num);/*值是2,3*/
+
+
+//    splice
+//    万能的添加方法,第一个参数操作的位置,第二个参数 要删除的个数, 后续的参数,表示要添加的内容
+//    返回值删除的元素组成一个数组
+    var num=[1,2,3];
+    num.splice(1,3,6);
+    console.log(num);/*值是1,6*/
+
+
+//    jojn
+//    将数组转化为字符串
+    var num=[1,2,3];
+    var str=num.join()
+    console.log(str);
+
+//    concat
+//    将多个数组合并成一个,对于原数组没有任何影响
+    var num=[1,2,3];
+    var num1=[7,8,9];
+    var num2=num.concat(num1);
+    console.log(num2);/*值是1,2,3,7,8,9*/
+
+
+//    slice
+//    从数组中截取指定内容返回,对原数组无影响
+//    var num=[1,2,3];
+//    var arr=new num.slice()
+//    console.log(arr);
+//    sort
+
+
+//    sort
+//    实现数组排序的功能,会影响数组本身
+//    返回值是自己
+    var num3=[1,2,4,2,8,6,7,9];
+    num3.sort(function (a, b) {
+        if(a>b){
+            return 1;
+        }else if (a<b){
+            return -1;
+        }
+    })/*排好序是1,2,2,4,6,7,8,9*/
+
+
+//    forEach
+//    遍历
+    var num=[1,2,3];
+    num.forEach(function (a,) {
+        console.log(a)
+    })
+
+
+//    filter
+//    过滤
+//    var num = [57,98,36,45,25,78];
+//    var newarr=num.filter(function (a) {
+//        if(a>60){
+//            return true;
+//        }
+//    });
+//    console.log(newarr)
+
+
+// map
+//
+    var arr=[1,2,3,4,5];
+    var qw=arr.map(function (a) {
+//        qw =//
+        return a*a
+    })
+    console.log(qw)
+
+
+//    some
+//    判断某个值是否存在
+    var arr=[54,65,78,32,87];
+    var newarr=arr.some(function (a) {
+        if(a>60){
+            return true
+        }
+    });
+    console.log(newarr);
+
+
+//    every
+//    判断每个值是否大于60
+    var arr=[15,65,87,31,87];
+    var newarr=arr.every(function (a) {
+        if(a>60){
+            return true
+        }
+    })
+console.log(newarr);
+
+
+//    index of
+//    获取数组某个值第一次出现的位置
+    var arr=[1,3,5,7,9];
+    console.log(arr.indexOf(1));
+
+
+//    lastIndext
+//    获取某个位置最后一次出现的位置
+    var arr=[1,3,5,7,9];
+    console.log(arr.lastIndexOf(3));
+
+
+//    reverse
+//    将数组中的内容反向展示
+    var arr=[1,3,5,7,9];
+    console.log(arr.reverse())
+
+
+//    reduce
+//    累加器
+    var arr=[1,3,5,7,9];
+    console.log(arr.reduce(function (a, b) {
+        return a+b;
+    }))
+
+
+//    reduce right
+    var arr=[1,3,5,7,9];
+    console.log(arr.reduceRight(function (a, b) {
+        return a+b
+    }))
+
+
+//find()
+    var arr=[1,3,5,7,9];
+    var newarr=arr.find(function (a) {
+        if(a>5){
+            return a;
+        }
+    })
+    console.log(newarr)
+
+
+//    findindex
+    var arr=[1,3,5,7,9];
+    var newarr=arr.findIndex(function (a) {
+        if(a>5){
+            return a;
+        }
+    })
+    console.log(newarr)
+
+
+//fill()
+    var arr=new Array();
+    arr.fill(1);
+    console.log(arr);
+
+
+//copywithi()用数组的某一部分替换掉另一部分
+    var arr=[1,2,3,4,5];
+    arr.copyWithin(0,2);
+    console.log(arr);/*34545*/
+
+
+//    includes 用来判断数组当中是否包含某个值的方法
+    var arr=[1,2,3,4,5];
+    console.log(arr.includes(1))
+
+//Array.isArray
+    function fn() {
+        console.log(Array.isArray(arguments))
+    }
+
+//    //Array.from
+    function fn() {
+        console.log(Array.from(arguments))
+    }
