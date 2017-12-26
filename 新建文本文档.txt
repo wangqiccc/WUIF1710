@@ -1,1 +1,243 @@
 https://wuxaioteng.github.io/yidong/
+  //push  概念：在数组的末尾添加一个或者多个元素
+    // 参数:一个或多个内容
+    // 返回值：新数组的长度
+    var arr=[1,2,3,4,5,"k","y"];
+    var r=arr.push(6,7);
+    console.log(arr);
+    console.log(r);//[1，2，3，4，5，k,y,6,7]
+    // pop  概念：删除掉数组的最后一个元素
+    // 返回值：是删掉的那个元素
+    var r=arr.pop();
+    console.log(arr);
+    console.log(r);//[1, 2, 3, 4, 5, "k", "y", 6]
+    //unshift()；概念：在数组的开始位置添加一个或多个元素
+    //返回值：新数组的长度
+    // 参数：一个或多个元素
+    var r=arr.unshift("t","i");
+    console.log(arr);
+    console.log(r);//["t", "i", 1, 2, 3, 4, 5, "k", "y", 6]
+   //shift();在数组开始位置删除一个元素
+    //返回值：删除的那个元素
+    var r=arr.shift();
+    console.log(arr);
+    console.log(r);//["i", 1, 2, 3, 4, 5, "k", "y", 6]
+    // .splice()；万能的添加删除方法
+    // *第一个参数是   操作的位置
+    // * 第二个参数是   要删除的个数
+    // * 后续的参数表示要添加的内容
+    // arr.splice(1,1,"x");
+    // 返回值就是删掉元素所组成的的数组
+    var r=arr.splice(0,4);
+    console.log(arr);
+    console.log(r);
+    arr.splice(3,0,1,2);
+    console.log(arr);//[4, 5, "k", "y", 6]
+    //join();概念：将数组转化为字符串
+    var str=arr.join("*");
+    // 里边传什么字符串就用什么方式连接
+    console.log(arr);
+    console.log(str);//4*5*k*1*2*y*6
+    // 调用返回值得到字符串
+    //     拼接数组
+
+    //concat概念：将多个数组合并为一个，对于原数组没有任何影响拼接数组
+    var x=[1,2,3];
+    var x1=[4,5,6];
+    var newarr=x.concat(x1);
+    console.log(newarr);//[1, 2, 3, 4, 5, 6]
+    // slice 从数组中截取指定内容返回不会影响原数组
+    var arr3=newarr.slice(1,-1);
+    // 参数：可以是一个或多个
+    console.log(newarr);
+    console.log(arr3);// [2, 3, 4, 5]
+
+
+    // sort实现数组排序功能，会影响数组本身
+    // 返回值还是原数组
+    // 参数：可以是一个或多个
+    var s=[1,2,5,6,9,88,48,4];
+    s.sort(function (a,b) {
+        // a和b指相邻的两个参数
+        if(a>b){
+            return 1;
+        }else if(a<b){
+            return -1;
+        }
+    });
+    console.log(s);//[1, 2, 4, 5, 6, 9, 48, 88]
+    // table使比较更直观
+
+
+    // 遍历
+    // 概念：遍历数组
+    // 参数：可以是一个或多个
+    var arr=[50,61,7,58,96,88];
+    var newarr=[];
+    arr.forEach(function (value,index) {
+        if(value>60){
+            newarr.push(value);
+        }
+    });
+    console.log(newarr);// [61, 96, 88]
+
+    Array.prototype.myforEach=function(callback){
+        for(var i=0;i<this.length;i++){
+            callback(this[i],i)
+        }
+    }
+    arr.myforEach(function(value,index){
+        console.log(value);
+        console.log(index);
+    })
+
+    // 过滤
+    // 概念：通过条件获得想要的结果
+    Array.prototype.myfilter=function (callback) {
+        for(var i=0;i<this.length;i++){
+            var r=callback(this[i],i)
+            if(r){
+                arr.push(this[i])
+            }
+        }
+        return arr;
+    }
+    var newarr=arr.filter(function (value,index) {
+        if(value>60){
+            return true;
+        }
+    });
+    console.log(newarr);//[61, 96, 88]
+    // console.clear();
+
+    // 映射
+    var arr=[1,2,3,4,5];
+    // var newarr=arr.map(function (v,i) {
+    //       return v**2;
+    //
+    // });
+    // console.log(newarr);
+
+
+
+
+    // some 概念：判断某一些是否满足条件，满足则为真
+    var arr=[50,61,7,58,96,88];
+    var newarr=arr.some(function (v) {
+        if(v>90){
+            return true;
+        }
+    })
+    console.log(newarr);//true
+    Array.prototype.mysome=function (callback) {
+        var state=false;
+        for(var i=0;i<this.length;i++){
+            var r=callback(this[i],i);
+            // this[i]指遍历获得的所有i值
+            if(r){
+                state=true;
+            }
+        }
+        return state;
+    }
+    // every();每一个些是否满足条件，满足则为真
+    var arr=[50,61,7,58,96,88];
+    var newarr=arr.every(function (v) {
+        if(v>90){
+            return false;
+        }
+    })
+    console.log(newarr);//false
+
+    // concat将多个数组合并为一个，对于原数组没有任何影响拼接数组
+    var x=[1,2,3];
+    var x1=[4,5,6];
+    var newarr=x.concat(x1);
+    console.log(newarr);
+
+    // indexOf();表示某一个元素第一次出现的位置,获取数组中某个值第一次出现的位置的下标
+    var arr=[1,2,3,4,5,4,5,5];
+    console.log(arr.indexOf(1));//获取数组中某个值第一次出现的位置的下标
+    // 当它找不到那个值时得到的值是-1
+    // 结果1：0；
+    // lastIndexOf();获取数组中某个值最后一次出现的位置的下标
+    console.log(arr.lastIndexOf(5));//7
+    //数组中内容反向展示
+    arr.reverse();
+    console.log(arr);//[5, 5, 4, 5, 4, 3, 2, 1]
+
+
+    // reduce累加
+    var arr=[1,2,3,4,5];
+    var num=arr.reduce(function (a,b) {
+        return a+b;
+    });
+    console.log(num);//15
+    var arr=[
+        {name:"zhangsan",grade:69},
+        {name:"zhangsan",grade:88},
+        {name:"zhangsan",grade:96}
+    ]
+    var he=arr.reduce(function (a,b) {
+        return {grade:a.grade+b.grade};
+    });
+    console.log(he);//253
+
+
+    // 数组的合并
+    // reduceRight重右向左排数组
+    var arr1=[1,0,0,1];
+    var arr=[[1,2,3,],[4,5,6],[7,8,9]];
+    var newarr=arr.reduceRight(function (a,b) {
+        return a.concat(b);
+    },arr1);
+    console.log(newarr);//[1, 0, 0, 1, 7, 8, 9, 4, 5, 6, 1, 2, 3]
+
+
+
+    // find();根据设置的条件，进行查找，如果有满足条件的就行进行返回
+    var arr=[1,2,3,4,5,6];
+    var r=arr.find(function (v,i) {
+        if (v*v===9){
+            return true;
+        }
+    });
+    console.log(r)//3
+    var arr=[
+        {name:"zhangsan",grade:69},
+        {name:"zhangsan",grade:88},
+        {name:"zhangsan",grade:96}
+    ]
+    var r=arr.findIndex(function(v){
+        if (v.grade === 90) {
+            return true;
+        }
+    });//
+    console.log(r);//0
+
+    //fill();对于数组进行填充，把数组中所有的空值填充成某一个值
+    var arr=new Array(10);
+    arr.fill(1);
+    console.log(arr);//[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+
+
+    // copyWithin();用数组的某一部分替换掉另一部分
+    var arr=[1,2,3,4,5];
+    arr.copyWithin(0,2);
+    console.log(arr);//[3, 4, 5, 4, 5]
+    //includes();用来判断数组当中是否包含某个值的方法
+    console.log(arr.includes(3));//true
+    // Array.isArray()判断某一个变量是否是一个数组
+    console.log(Array.isArray(111));//false
+
+    // Array.from();把一个类数组转化为一个真正的数组
+    function fn() {
+        console.log(Array.from(arguments))
+    }
+    fn(1,2,3,4,5);//[1, 2, 3, 4, 5]
+
+
+    // Array.of();创建一个数组
+    var arr=new Array(5,6,7);
+    var arr=Array.of(5,6,7);
+    console.log(arr);//[5, 6, 7]
