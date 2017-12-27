@@ -1,4 +1,5 @@
 https://gentleman-lyq.github.io/chyd/
+liuyueqi
 //push 在数组的末尾添加一个或者多个元素  
 //		var arr=[7,8,9]  
 //      var arr1=arr.push(1,2,3,4,5,6)
