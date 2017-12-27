@@ -1,10 +1,179 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="utf-8" />
 		<title></title>
 	</head>
 	<body>
-		<div class=""></div>
+		<script>
+//		push
+//		参数:一个或多个元素;
+//		返回值:新数组的长度;   [1,2,3,4,5,6]
+//		作用:在数组的末尾添加一个或多个元素
+			var arr=[1,2,3,4,5,6,8,6];
+//			arr.push(4,5,6);
+//			console.log(arr); 
+
+//		pop
+//		参数:一个；
+//		返回值:被删掉的元素;
+//		作用:删掉数组的最后一个元素;
+			var r=arr.pop();
+			console.log(arr);
+			console.log(r)
+//			
+//		unshift
+//		参数:一个或者多个元素;
+//		返回值:数组的长度  
+//		作用:在数组的开始位置添加一个或多个元素;
+
+			var r=arr.unshift("xxx","d");
+			console.log(arr);
+			console.log(r)
+//		shift
+//		参数:一个元素;
+//		返回值:倍删掉的元素
+//		作用:在开始的位置删除一个元素
+
+			var r=arr.shift();
+			console.log(arr);
+			console.log(r)
+//		splice
+//		参数:多个参数  第一个参数表示操作的位置
+//					第二个参数表示要删除的个数
+//					后续的参数表示要添加的内容
+//		返回值:删掉的元素的数组   [85,85]
+//		作用:万能的删除方法
+
+			var r=arr.splice(3,2,"c","y",);
+			console.log(arr);
+			console.log(r)
+//		join
+//		概念:将数组转化为字符串
+//		里边传什么字符串就用什么方式连接
+			var str=arr.join("+");
+			console.log(arr);
+			console.log(str)
+//		
+//			concat
+//		将多个数组合并为一个,对于原数组没有任何影响
+//			var arr1=[1,2,3];
+//			var arr2=[4,5,6];
+//			var newarr=arr1.concat(arr2);
+//			console.log(newarr);
+
+//		slice
+//		参数:多个参数;
+//		返回值:截取的内容 
+//		作用:从数组中截取指定内容，但是对原数组并没有影响
+			var arr=[1,2,3,5,8,45];
+			var r=arr.slice(1,3);
+			console.log(arr);
+			console.log(r)
+			
+//		sort()	
+//		参数:多个参数
+//		返回值:原数组
+//		作用:实现数组的排序功能
+			var arr=[1,3,6,9,4,6,5,4]
+			var r =arr.sort(function(a,b){
+    			if(a>b){
+        			return 1;
+    			}else if(a<b){
+        			return -1;
+   			 	}
+			})
+			console.log(arr);
+			
+//		遍历
+			var arr=[96,55,64,72];
+			var newarr=[];
+			arr.forEach(function(value,index){
+				if(value>60){
+					newarr.push(value)
+				}
+			})
+			console.log(newarr)
+//		映射
+			var arr=[1,2,3,4,5];
+			var newarr=arr.map(function(v,i){
+				return v**2;
+			})
+			console.log(newarr)
+//		some
+//		判断某些是否为真
+		
+			var arr=[1,2,3,4,5];
+			var result=arr.some(function(a,i){
+				if(a<3){
+					return true;
+				}
+			})
+			console.log(result)
+//		every
+//		判断每一个是否为真
+			var arr=[1,2,3,4,5];
+			var result=arr.every(function(a,i){
+				if(a<3){
+					return true;
+				}
+			})
+			console.log(result)
+//		indexof
+//		
+//		作用：获取数组中某个值的下标 第一次出现的位置的下标 
+//		indexlastof
+//		作用:获取数组中某个值最后一次出现的位置的下标
+			var arr=[1,2,5,45,8,9,2,1,3,5,15];
+			console.log(arr.indexOf(5));
+			console.log(arr.lastIndexOf(5));
+			
+//		reduce  累加
+		var arr=[12,56,22];
+		var num=arr.reduce(function(a,b){
+			return a+b;
+		})
+		console.log(num)
+		var arr=[
+			{name:"zhsn",grade:69},
+			{name:"zhsn",grade:79},
+			{name:"zhsn",grade:89},
+		]
+		var he=arr.reduce(function(a,b){
+			return{grade:a.grade+b.grade}
+		})
+		console.log(he)
+			
+//		find() 根据设置的条件进行查找,如果有满足条件的就进行返回;
+			var arr=[1,2,5,6,4,5];
+			var r=arr.find(function(v,i){
+				if(v*v===4){
+					return true;
+				}
+			})
+			console.log(r)
+//		fill()
+//		对于数组进行填充,把数组中所有的空值填充成某一个值
+			var arr=new Array(6);
+			arr.fill(1);
+			console.log(arr)
+			
+//		copyWithIn  用数组的某一部分替换掉另一部分
+			var arr=[12,311,45];
+			arr.copyWithin(2,2);
+			console.log(arr);
+//		Array.from() 把一个类数组转化为一个真正的数组
+		function fn(){
+			console.log(Array.from(arguments))
+		}
+		fn(1,2,3,5,);
+//		array.of  创建一个数组
+		var arr=new Array(5,6,7);
+		var arr=Array.of(5,6,7);
+		console.log(arr)
+		
+		
+		
+		</script>
 	</body>
 </html>
