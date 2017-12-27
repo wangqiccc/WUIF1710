@@ -1,1 +1,171 @@
 https://gentleman-lyq.github.io/chyd/
+//push 在数组的末尾添加一个或者多个元素  
+//		var arr=[7,8,9]  
+//      var arr1=arr.push(1,2,3,4,5,6)
+//      console.log(arr) 1-9数组
+//      console.log(arr1) 返回值为新数组的长度
+//
+
+        //pop()删除掉数组的最后一个元素  
+//      var arr=[1,2,3,4,5,6]
+//      var arr1=arr.pop()
+//      console.log(arr) 1-5
+//      console.log(arr1) 返回值是删除的内容
+//
+
+        //unshift()在数组的开始位置添加一个或者多个元素
+//      var arr=[4,5,6]
+//      var arr1=arr.unshift(1,2,3)
+//      console.log(arr) 1-6
+//      console.log(arr1) 返回值新数组的长度
+//
+
+        //shift()删除掉数组的第一个元素
+//      var arr=[1,2,3]
+//      var arr1=arr.shift()
+//      console.log(arr) 2,3
+//      console.log(arr1) 1
+//
+
+        //splice()万能的添加删除方法 第一个参数 操作的位置   第二个参数 要删除的个数   后续的参数 表示要添加的内容
+//      var arr=[1,2,3,4,5]
+//      var arr1=arr.splice(2,2,3,4,5)
+//      console.log(arr) 1,2,3,4,5,5
+//      console.log(arr1) 3,4
+//
+
+        //join将数组转换为字符串（基于数组得到一个字符串）
+//      var arr=[1,2,3,4,5,6,7,8,]  
+//      var str=arr.join()  
+//		console.log(str) 字符串 1-8
+
+        //concat 将多个数组合并成一个对于原数组没有任何影响 
+//      var arr1=[1,2,3]  
+//		var arr2=[4,5,6]
+//		var newarr=arr1.concat(arr2)
+// 		console.log(newarr)1-6
+
+        //slice从数组中截取指定内容返回 不会影响原宿主   
+//      var arr=[1,2,3,4,5,6]
+//		var arr1=arr.slice(2)
+//		console.log(arr) 1-6
+//		console.log(arr1) 3-6
+
+        //sort 实现数组排序的功能，会影响数组本身
+//      var arr=[1,9,4,6,7,2]
+//      arr2=arr.sort()
+//      console.log(arr)1,2,4,6,7,9
+//      console.log(arr2)1,2,4,6,7,9
+
+
+        //forEach 遍历 value元素 index下标
+//      var arr=[98,87,52,47,68,88];
+//          arr.forEach(function(v,i){
+//          	console.log(v); 98,87,52,47,68,88
+//          	console.log(i); 0,1,2,3,4,5
+//          })
+
+        //filter() 过滤   方法创建一个新的数组，新数组中的元素是通过检查,指定数组中符合条件的所有元素
+//      var arr=[98,87,52,47,68,88];
+//      var newarr=arr.filter(function(v,i){
+//		    if(v>60){
+//			    return true
+//				}
+//		})
+//      console.log(newarr) 98 87 68 88
+
+        //map() 映射  原数组被映射出新数组 value元素 index下标
+//      var arr=[1,2,3,4,5,6];
+//      var newarr=arr.map(function(v,i){
+//          return v*v;
+//      })
+//      var newarr1=arr.map(function(v,i){
+//          return v+v;
+//      })
+//      console.log(newarr)1,4,9,16,25,36
+//      console.log(newarr1)2,4,6,8,10,12
+
+        //some() 判断    有一个满足的则输出true
+//      var arr=[60,85,65,45,58,66]
+//      var result=arr.some(function(v){
+//          if(v>80){
+//          	return true;
+//          	}
+//          })
+//          console.log(result)有大于80的则输出true
+
+        //every() 判断    每一个都满足则输出true 否则false
+//      var arr=[60,85,65,45,58,66]
+//      var result=arr.every(function(v){
+//          if(v>30){
+//          	return true;
+//          	}
+//          })
+//      console.log(result)每一个值都大于30则输出true ,否则输出false
+
+        //indexOf获取数组中某一个值第一次出现的位置的下标
+//      var arr=[1,2,3,4,5,1,2,3,4,5]
+//      console.log(arr.indexOf(1)) 0
+
+        //lastIndexOf 获取数组中某个值最后一次出现位置的下标  
+//      var arr=[1,2,3,4,5,1,2,3,4,5]
+//      console.log(arr.lastIndexOf(1)) 5
+
+        //reverse 将数组中的内容反向展示 
+//      var arr=[1,2,3,4,5,1,2,3,4,5]
+//      arr.reverse()
+//      console.log(arr)5,4,3,2,1,5,4,3,2,1
+
+        //reduce 累加器 可以加可以乘 reduceRight 从右加  
+//      var arr=[1,2,3,4,5]
+//      var num=arr.reduce(function(a,b){
+//      return a+b
+//      })
+//      console.log(num)  15
+
+        //reduce 累加器 可以加可以乘 reduceRight 从右加  
+//      var arr=[1,2,3,4,5]
+//      var num=arr.reduce(function(a,b){
+//      return a*b
+//      })
+//      console.log(num)  120
+
+
+
+
+        //find()根据我们设置的条件进行查找，如果有满足条件的，就把这个值返回
+//      var arr=[38,43,89,40,68,97]
+//      var arr1=arr.find(function(v){
+//      	if(v===68){
+//      		return v
+//      	}
+//      })
+//      console.log(arr1) 输出68
+
+
+        //findIndex() 根据我们设置的条件进行查找，就把这个值的位置返回 下标
+//      var arr=[23,43,54,25,67]
+//      var arr1=arr.findIndex(function(v){
+//      	if(v===43){
+//      		return v
+//      	}
+//      })
+//      console.log(arr1) 1
+
+
+        //fill()  对于数组进行填充，把数组中的空值填充为某个值 三个值 填充内容 起始位置 结束位置
+//      var arr=[14,35,45,57,,67,23]
+//      var newarr=arr.fill(80,4,5)
+//      console.log(newarr) 14,35,45,57,80,67,23
+
+         
+        //copyWithIn()用数组的某一部分替换掉另一部分 复制到指定目标索引位置 元素复制的起始位置 停止复制的索引位置 (默认为 array.length)
+//      var arr=[1,2,3,4,5,6,7,8]
+//      arr.copyWithin(1,4,6) 1,5,6,4,5,6,7,8
+//      arr.copyWithin(2,5) 1,2,6,7,8,6,7,8
+//      console.log(arr)
+
+        //includes()用来判断数组当中是否包含某个值的方法 包含则true
+//      var arr=[1,2,3,4,5,6]
+//      var arr1=arr.includes(5)
+//      console.log(arr1)  true
