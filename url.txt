@@ -1,1 +1,168 @@
-https://hxxh-1120.github.io/yidong/index.heml
+   //1、push
+    //参数：一个或者多个值；
+    //返回值：新数组的长度；
+    //作用：在数组的尾部添加内容
+    var arr=[1,2,3,4,5,6,7];
+    var r=arr.push(10,11,1,13,14);//[1,2,3,4,5,6,7,10,11,1,13,14];
+    console.log(arr);
+    console.log(r);//12
+    //2、pop()
+    //参数：最后一个元素
+    //返回值：删除的字符串；
+    //作用：删除数组的最后一个元素
+    var r=arr.pop();
+    console.log(arr);//[1,2,3,4,5,6,7,10,11,1,13]
+    console.log(r);//14
+    //3、unshift()
+    //参数：一个或多个值；
+    //返回值：新数组的长度；
+    //作用：在数组开始位置添加内容
+    var r=arr.unshift(5,2,1);//[5,2,1,1,2,3,4,5,6,7,10,11,1,13]
+    console.log(arr);
+    console.log(r);//14
+    //4、shift
+    //参数：最前面一个元素
+    //返回值：删除的字符串；
+    //作用：删除数组的第一个元素
+    var r=arr.shift();
+    console.log(arr);//[2,1,1,2,3,4,5,6,7,10,11,1,13]
+    console.log(r);//5
+    //5、splice
+    //参数：第一个参数操作的位置；第二个参数要删除的个数；后续的参数新添加的内容；
+    //返回值：删除元素组成的数组
+    //作用：是万能的添加删除方法
+    arr.splice(2,0,5,2,1,1,3,1,4);//[2,1,5,2,1,1,3,1,4,1,2,3,4,5,6,7,10,11,1,13]
+    console.log(arr);
+    //6、join
+    //作用：将数组转化为字符串，结果要调用返回值，可传参数，参数是连接符；
+    var str=arr.join(" ");
+    console.log(str);//2 1 5 2 1 1 3 1 4 1 2 3 4 5 6 7 10 11 1 13
+    //7、concat
+    //作用：将多个数组合并为一个；对于原数组没有影响；
+    var arr1=[1,2,3];
+    var arr2=[5,6,7];
+    var newarr=arr1.concat(arr2);
+    console.log(newarr);//[1,2,3,5,6,7]
+    //8、slice
+    //作用：从数组中截取指定的内容返回，不会影响原数组。
+    //参数： 一个参数就是位置；两个参数，开始位置和结束位置；负参数，-1，就是最后一个；
+    var arr=[0,1,2,3,4,5,6,7];
+    var newarr=arr.slice(2,3);//[2]
+    console.log(newarr);
+    //9、sort
+    //作用：实现数组的排序功能
+    //返回值：还是原来的数组
+    var arr=[1,3,6,7,8,90,56];
+     arr.sort(function(a,b){
+        if(a>b){
+            return 1;
+        }else{
+            return -1;
+        }
+    });
+    console.log(arr);//[1,3,6,7,8,56,90]
+
+
+    //es5
+    //1、forEach
+    //作用：数组的遍历
+    var arr=[1,3,5,7,9];
+    arr.forEach(function(v,i){
+        console.log(v);
+    })//1 3 5 7 9
+    //2、filter
+    //作用：过滤
+    //返回值：是一个组合
+    function liangwei(value) {
+        return value >= 10;
+    }
+    var arr=[12, 5, 8, 130, 44].filter(liangwei);
+    console.log(arr);//[12,130,44]
+    //3、map
+    //作用：映射；
+    var arr=[1,2,3,4,5,6];
+    var newarr=arr.map(function(v){
+        return v*v;
+    });
+    console.log(newarr);//[1,4,9,16,25,36]
+    //4、some
+    //作用：判断有一个满足；
+    var arr=[50,89,67,45,34,89,98];
+    var newarr=arr.some(function(v){
+        if(v>90){
+            return true;
+        }
+    });
+    console.log(newarr);//true
+    //5、every
+    //作用：全部满足
+    var arr=[50,89,67,45,34,89,98];
+    var newarr=arr.every(function(v){
+        if(v>=60){
+            return true;
+        }else{
+            return false;
+        }
+
+    })
+    console.log(newarr);//false
+    //6、indexOf
+    //作用：获取数组中第一次出现的位置的下标
+    //lastIndexOf
+    //作用：获取数组中最后一次出现的位置的下标
+    var arr=[1,2,3,4,5,1,2,3,4];
+    console.log(arr.indexOf(3));//2
+
+    //7、reverse
+    //作用：将数组中的内容反向
+    var arr=[1,2,3,4,5,6,7];
+    console.log(arr.reverse());//7,6,5,4,3,2,1
+    //8、reduce
+    //作用：累加
+    //reduceRight
+    //作用：从右往左加
+    var arr=[11,20,34,54];
+    var num=arr.reduce(function(a,b){
+        return a+b;
+    })
+    console.log(num);//119
+
+
+    //es6
+    //1、find
+    //作用：查找满足条件的
+    var arr=[1,2,3,4,5,6,7,8,]
+    console.log(arr.find(function(a){
+        return a>3;
+    }));//4
+
+    //2、findIndex
+    //作用：如果满足条件，返回值得位置
+    var arr=[1,2,3,4,5,6,7,8]
+    console.log(arr.findIndex(function(a){
+        return a>3;
+    }));//3
+
+    //3、fill
+    //作用：对于数组进行填充，把空值填充为某值
+    var arr=new Array(10);
+    console.log(arr.fill(613));//[613, 613, 613, 613, 613, 613, 613, 613, 613, 613]
+    //4、copyWithIn()
+    //作用：用数组的一部分替换掉另一部分
+    var arr=[1,2,3,4,5,6]
+    console.log(arr.copyWithin(0,3,5));//从0位开始。复制原数组的3位到5位，就是4和5，含头不含尾，就是
+    //3位到5位，是指3号，和4号，不包含5号
+    // 结果:[4, 5, 3, 4, 5, 6]
+
+    //5,includes()方法
+    //作用,用来判断数组中是否包含某个值的方法
+    var arr1=[1,2,3,4,5,6]
+    console.log(arr1.includes(2));//是否包含2，true
+
+console.log(Array.isArray(111));//111是不是数组，不是。false
+
+    //Array.from()  将一个类似数组，有length属性的对象，转化为数组，比如一个字符串，可转为单个字符的数组
+    console.log(Array.from('lihuixin'));//结果为["l", "i", "h", "u", "i", "x", "i", "n"]
+
+    var arr=Array.of(2,3,4);//2,3,4转为数组
+    console.log(arr);
