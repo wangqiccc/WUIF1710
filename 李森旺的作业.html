@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业</title>
+</head>
+<body>
+<script>
+    //ES3
+    //"push"在数组末尾添加一个或多个元素
+    //返回值为length
+    // var arr1=[1,2,3,4,5,6,7,8,9];
+    // var arr2=[9,8,7,6,5,4,3,2,1];
+    // arr2.forEach(function(v,i){
+    //     r=arr1.push(arr2[i]);
+    // });
+    // console.log(r);
+    // console.log(arr1);
+
+
+
+
+
+
+    //"pop"删除数组最后一个元素
+    //返回值为删除的最后一个元素
+    //  var arr=[1,2,3,4,5,6,7,8,9];
+    //  r=arr.pop();
+    //  console.log(arr);
+    //  console.log(r)；
+
+
+
+
+
+    //"unshift"在数组的开始位置添加一个元素或多个元素
+    //返回值length
+    // var arr=[1,2,3,4,5,6,7,8,9];
+    // r=arr.unshift(2,1,0,1,2);
+    // console.log(arr);
+    // console.log(r);
+
+
+
+    //"shift"在数组开始位置删除一个元素
+    //返回值是删除的元素
+    // var arr=[1,2,3,4,5,6,7,8,9];
+    // r=arr.shift();
+    // console.log(arr);
+    // console.log(r);
+
+
+
+
+
+    //"splice"万能的添加删除方式
+    //第一个参数：操作的位置
+    //第二个参数：要删除的个数
+    //后续的参数：要添加的内容
+    //返回值：删除元素组成的数组
+    // var arr=[1,2,3,4,5,6,7,8,9];
+    // r=arr.splice(1,2,0,0,0);
+    // console.log(arr);
+    // console.log(r);
+
+
+
+    //"join"将数组转化为字符串
+    //返回值：字符串
+    //join（）括号里可以加" " *连接
+    //对原数组没有影响
+    // var arr=[1,2,3,4,5,6,7,8,9];
+    // newarr=arr.join(" ");
+    // newarr=arr.join("*");
+    // console.log(arr);
+    // console.log(newarr);
+
+
+
+    //"concat"将多个数组合并为一个
+    //返回值：重组数组
+    //对原数组没有影响
+    // var arr1=[1,2,3,4,5,6,7,8,9];
+    // var arr2=[9,8,7,6,5,4,3,2,1];
+    // newarr=arr1.concat(arr2);
+    // console.log(arr1);
+    // console.log(arr2);
+    // console.log(newarr);
+
+
+
+
+
+
+
+    //"slice"从数组中截取指定内容返回
+    //对原数组没有影响
+    //一个参数：从这开始到结束
+    //两个参数：从此位置到彼位置
+    // var arr=[1,2,3,4,5,6,7,8,9];
+    // newarr1=arr.slice(1);
+    // newarr2=arr.slice(2,4);
+    // newarr3=arr.slice(1,-1);
+    // console.log(newarr1);
+    // console.log(newarr2);
+    // console.log(newarr3);
+
+
+
+
+
+
+
+
+
+    //"sort"实现数组排序功能
+    //对原数组有影响
+    //返回值为与排序后一样
+    //ASCII码排序
+    // var arr=[1,2,1,2,3,4,7,9,5,6,7,8,9];
+    // r=arr.sort();
+    // console.log(arr);
+    // console.log(r);
+    //
+    // var arr=[11,21,1,2,3,4,7,9,5,6,7,8,99];
+    // var r=arr.sort(function(a,b){
+    //     if(a>b){
+    //         return 1
+    //     }else{
+    //         return -1
+    //     }
+    // });
+    // console.log(arr);
+    // console.log(r);
+    // console.table(arr);
+    // console.table(r);
+
+
+
+    //ES5
+    //遍历
+    //forEach遍历
+    // Array.prototype.myforEach=function(callback){
+    //     for(var i=0;i<this[i];i++){
+    //         callback(this[i],i);
+    //     }
+    // };
+    // var arr=[98,87,54,42,23,78,87];
+    // var newarr=[];
+    // arr.myforEach(function (v) {
+    //     if(v>60){
+    //         newarr.push(v)
+    //     }
+    // });
+    // console.log(newarr);
+
+
+    //过滤
+    //filter过滤
+    // Array.prototype.myFilter=function(callback){
+    //         for(var i=0;i<this[i];i++){
+    //             var t=callback(this[i]);
+    //
+    //
+    //
+    //          }
+    //     };
+    //
+    //     var arr=[98,87,54,42,23,78,87];
+    //
+    //     arr.myFilter(function (v) {
+    //         if(v>60){
+    //             console.log(v)
+    //         }
+    //     });
+
+        // var arr=[98,87,54,42,23,78,87];
+        //
+        // arr.filter(function (v) {
+        //     if(v>60){
+        //         console.log(v)
+        //     }
+        // });
+
+
+
+
+
+
+
+    //映射
+    //map映射
+    // var arr1=[1,2,3];
+    // var arr2=[];
+    // var arr2=arr1.map(function(v){
+    //     return v**2;
+    // });
+    // console.log(arr2);
+    // console.log(arr1);
+
+    // var numbers=[1,4,9];
+    // var root=numbers.map(Math.sqrt);
+    // console.log(root);
+
+
+    //获取位置
+    //"indexOf"获取数组中某个值第一次出现的位置
+    // var arr=[1,2,1,2,3,4,7,9,5,6,7,8,9];
+    // r=arr.indexOf(1);
+    // console.log(r);
+    // console.log(arr);
+
+
+
+
+    //获取位置
+    //直接调用传值
+    //"lastIndexOf"获取数组中某个值第一次出现的位置
+    // var arr=[1,2,1,2,3,4,7,9,5,6,7,8,9];
+    // r=arr.lastIndexOf(1);
+    // console.log(r);
+    // console.log(arr);
+
+
+
+
+
+    //直接调用不传值
+    //"reverse"将数组中内容反向展示
+    // var arr=[1,2,1,2,3,4,7,9,5,6,7,8,9];
+    // r=arr.reverse();
+    // console.log(r);
+    // console.log(arr);
+
+
+
+
+    //累加器
+    //"reduce"从左往右加
+    // var arr=[1,2,1,2,3,4,7,9,5,6,7,8,9];
+    // var sum=function(a,b){
+    //         return a+b;
+    //     };
+    // console.log(sum);
+    // console.log(arr);
+    // arr.reduce(sum);
+    // console.log(arr.reduce(sum));
+
+
+
+
+    //累加器
+    //"reduceRight"从左往右加
+    // var arr=[1,2,1,2,3,4,7,9,5,6,7,8,9];
+    // var sum=function(a,b){
+    //     return a+b;
+    // };
+    // console.log(sum);
+    // console.log(arr);
+    // arr.reduceRight(sum);
+    // console.log(arr.reduceRight(sum));
+
+
+
+
+
+
+
+
+
+
+
+
+    //ES6
+    //"find"根据条件进行查找值，函数。满足条件返回值，函数
+    // var arr = [1, 2, 1, 2, 3, 4, 7, 9, 5, 6, 7, 8, 9];
+    // var r = arr.find(function(v){
+    //     return v>4;
+    // });
+    // console.log(r);
+
+
+
+
+
+
+
+
+
+
+    //"findIdex"根据条件进行查找值，函数。满足条件返回值，函数
+
+    // var arr = [1, 2, 1, 2, 3, 4, 7, 9, 5, 6, 7, 8, 9];
+    // var r = arr.findIndex(function(value,index){
+    //     return index>4;
+    // });
+    // console.log(r);
+
+
+
+    //"fill"对数组进行填充，把空值填充为指定值
+    // var arr = [null,null,null];
+    // var r=arr.fill(2);
+    // console.log(r);
+
+
+    //"copyWithIn"用数组的某一部分替换掉另一部分
+    //第一个参数：操作的位置
+    //第二个参数：要删除的个数
+    //后续的参数：要添加的内容
+    //返回值：新的数组
+    //数组长度不变
+    // var arr=[1,2,3,4,5,6,7,8,9];
+    // var r=arr.copyWithin(1,2,4);
+    // console.log(arr);
+    // console.log(r);
+
+
+
+</script>
+</body>
+</html>
