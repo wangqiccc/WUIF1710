@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业</title>
+</head>
+<body>
+
+</body>
+<script>
+    // es3
+    // push
+    // 在数组的末尾添加一个或者多个元素
+    // 返回值为新数组的长度
+    var num=[1,2,3]
+    num.push(5)
+    console.log(num)
+    // 结果为[1,2,3,5]
+    // pop
+    // 删除掉数组的最后一个元素,一次只能删除1个
+    // 返回值为删除的那个元素
+    num.pop()
+    console.log(num)
+    // 结果为[1,2,3]
+    // unshift
+    // 在数组的开始位置添加一个或多个元素,
+    // 返回值为添加之后新数组的长度
+    num.unshift(9)
+    console.log(num)
+    // 结果为[9,1,2,3]
+    // shift()
+    // 在数组的开始位置删除一个或多个元素,
+    // 返回值为删除的那个元素
+      num.shift(9)
+    console.log(num)
+    // 结果为[1,2,3]
+    // splice()
+    // 万能的添加删除方法
+    // 1.第一个参数是操作的位置
+    // 2.第二个参数是要删除的个数
+    // 3.后续的参数表示要添加的内容
+    // 返回值为删掉的元素组成的数组
+    num.splice(0,2,"six")
+    console.log(num)
+    // 结果为["six",3]
+    // join()
+    // 将数组转化为字符串,
+    // 返回值为基于数组得到的字符串,括号里面添加什么,字符串就会用什么隔开
+    var num1=num.join();
+    console.log(num1)
+    // 结果为six,3
+    // concat
+    // 将多个数组合并为一个,对原数组没有任何影响
+    // 返回值为新的数组
+    var arr1=[1,2,3];
+    var arr2=[4,5,6];
+    var newArr=arr1.concat(arr2);
+    console.log(newArr)
+    // 结果为[1,2,3,4,5,6]
+    // slice
+    // 从数组中截取指定内容返回不会影响原数组,括号里填写要截取的位置,填两位数就会截取以这两个数为下标之间的位置,下标为负数的话就是从后向前
+    // 返回值为截取之后的数组
+        var r=newArr.slice(1,-1);
+    console.log(r);
+    // 结果为[2,3,4,5]
+    // sort
+    // 实现数组的排序功能,会影响数组本身
+    var arr3=[1,2,4,3,6,9,7]
+    var r1=arr3.sort()
+    console.log(r1)
+    // 结果为[1, 2, 3, 4, 6, 7, 9]
+
+
+
+    // es5
+    // forEach
+    // 参数为回调函数function(v,i){}
+    // 返回值为每一个值
+    // 作用为遍历
+    var arr4=[30,31,20,80,91,89];
+    Array.prototype.myFilter=function(callback){
+        for(var i=0;i<this.length;i++){
+            callback(this[i]);
+        }
+    }
+    arr4.myFilter(function(value){
+        if(value>60){
+            console.log(value);
+        }
+    });
+    // 结果为[80,91,89]
+    // fittle
+    //参数为回调函数function(value,index){}
+    //返回值为满足条件的数值
+    //作用为过滤；
+    var arr4=[45,34,34,64,98,88];
+    Array.prototype.myFilter=function(callback){
+        for(var i=0;i<this.length;i++){
+            callback(this[i]);
+        }
+    }
+    arr4.myFilter(function(value){
+        if(value>60){
+            console.log(value);
+        }
+    });//64 98 88
+    //map
+    //参数为回调函数function(value,index){}
+    //作用为一一对应按照表达式得到某值
+    //返回值为运算完成得到的结果
+    var arr1=[1,2,3,4,5];
+    Array.prototype.myMap=function(callback){
+        for(var i=0;i<this.length;i++){
+            callback(this[i]);
+        }
+    }
+    var newarr=[];
+    var result=arr1.myMap(function(value){
+        newarr.push(value*value);
+    });
+    console.log(newarr);
+    //[1,4,9,16,25]
+    // some
+    //参数为回调函数function(value,index){}
+    //作用为判断数组中是否存在某值
+    //返回值为true||false
+    var arr2=[56,67,77,78,89,23,98];
+    Array.prototype.mySome=function(callback){
+        var state=false;
+        for(var i=0;i<this.length;i++){
+            var r=callback(this[i],i);
+            if(r){
+                state=true;
+            }
+        }
+        return state;
+    }
+    var result=arr2.mySome(function(value){
+        if(value>90){
+            return true;
+        }
+    });
+    console.log(result);
+    //true
+    // every
+    //参数为回调函数function(value,index){}
+    //作用为判断数组中是否所有值都满足条件
+    //返回值为true||false
+    var arr3=[66,30,67,89,90,99];
+    Array.prototype.myEvery=function(callback){
+        var state=true;
+        for(var i=0;i<this.length;i++){
+            var t=callback(this[i],i);
+            if(!t){
+                state=false;
+            }
+        }
+        return state;
+    }
+    var result=arr3.myEvery(function(value){
+        if(value>60){
+            return true;
+        }
+    });
+    console.log(result);
+    //false;
+    // indexOf
+    //作用为获取数组中某个值第一次出现的位置的下标 ；
+    var arr8=[1,2,3,4,5,1,2,3,4,5];
+    console.log(arr8.indexOf(2));
+    //1;
+    // lastIndexOf
+    //作用为获取数组中某个值最后一次出现的位置的下标
+    var arr8=[1,2,3,4,5,1,2,3,4,5];
+    console.log(arr8.lastIndexOf(2));
+    //6;
+    // reverse
+    //作用为将数组中的内容反向展示
+    var arr9=[1,2,3,4,5];
+    console.log(arr9.reverse());
+    //[5,4,3,2,1];
+    // reduce
+    //作用为累加器()从左往右加；
+    // 参数为回调函数function(value,index){}
+    var arr6=[[1,2,3],[4,5,6],[7,8,9]];
+    arr7=[4,6,8];
+    var newArr=arr6.reduce(function(a,b){
+        return a.concat(b);
+    },arr7);
+    console.log(newArr);
+    //[4,6,8,1,2,3,4,5,6,7,8,9];
+    //  reduceRight
+    //作用为累加器()从右往左加；
+    // 参数为回调函数function(value,index){}
+    var arr6=[[1,2,3],[4,5,6],[7,8,9]];
+    var newarr=arr6.reduceRight(function(a,b){
+        return a.concat(b);
+    })
+    console.log(newarr);
+    //[7,8,9,4,5,6,1,2,3];
+
+
+
+    // es6
+    // find
+    //作用为根据我们设置的条件进行查找，如有满足条件的，把值返回；
+    //返回值为满足条件的值
+    var arr=[
+        {name:"zhangsan",grade:90},
+        {name:"lisi",grade:95},
+        {name:"wangwu",grade:80}
+    ];
+    var r=arr.find(function(v,i){
+        if(v.grade===90){
+            return true;
+        }
+    })
+    console.log(r);
+    //{name:"zhangsan",grade:"90"}
+    // findIndex
+    //作用为根据我们设置的条件进行查找，如有满足条件的 就把值的位置返回
+    //返回值为值的下标
+    var arr=[
+        {name:"zhangsan",grade:90},
+        {name:"lisi",grade:95},
+        {name:"wangwu",grade:80}
+    ];
+    var r=arr.findIndex(function(v,i){
+        if(v.grade===95){
+            return true;
+        }
+    })
+    console.log(r);
+    //0;
+    // fill()
+    // 作用为对于数组进行填充,把数组中的空值填充为某个值
+    var arrG=[]
+    arrG.fill(11);
+    console.log(arrG);
+    //结果为11
+
+    // copyWithin()
+    //作用为用数组的一部分替换掉另一部分
+    var arr=[1,2,3,4,5];
+    arr.copyWithin(0,2);
+    console.log(arr);
+    //[3,4,5,4,5];
+    // includes()
+    //作用为用来判断数组中是否包含某个值的方法
+    var arr=[1,2,3,4,5];
+    console.log(arr.includes(3));
+    // Array.isArray
+    //作用为用于确定传递的值是否是一个 Array
+    var arr=[1,2,3,4,5];
+    console.log(Array.isArray(arr));
+    //true;
+    // Array.from()
+    //作用为把类似数（有length的对象）组转换为一个真正的数组
+    function fn(){
+        console.log(Array.from(arguments))
+    }
+    fn(1,2,3,4,5);//[1,2,3,4,5];
+    // Array.of
+    //作用为创建一个具有可变数量参数的新数组
+    var arr=new Array(5);
+    var arr=Array.of(5);
+    console.log(arr);
+    //5;
+    // fill
+    //作用为对于数组进行填充，把数组中的所有空值填充为某一个值
+    var arr10=new Array(10);
+    arr10.fill(1);
+    console.log(arr10);
+    //[1,1,1,1,1,1,1,1,1,1];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
