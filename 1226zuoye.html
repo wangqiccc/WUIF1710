@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+//1. push
+//参数： 一个或多个
+// 返回值：新数组的长度
+//作用：在数组的末尾添加元素
+    var arr=[];
+    arr.push(1);
+    console.log(arr);  //[1];
+    arr.push(2,3,4);
+    console.log(arr);  //[1,2,3,4];
+//2.pop
+//    作用：删除数组的最后一个元素
+//返回值：被删除的元素
+console.log(arr.pop());   //  4
+//    3.unshift()
+//    参数：一个或多个元素
+//    作用：在开始位置添加一个或多个元素
+//    返回值：新数组的长度
+    console.log(arr.unshift("asd",1,3))   //  6
+//    4.  shift
+//    作用：删除数组开头的第一个元素
+//    返回值：被删除的元素
+console.log(arr.shift());   //  asd
+//    5.  splice
+//作用：用来删除、添加和替换
+//参数：第一个参数是开始的位置，第二个是删除的个数，如果为0则不删除
+//        返回值：如果是删除，返回的是删除的数组
+console.log(arr.splice(2,2));    //[1,2]
+console.log(arr.splice(1,0,"asd",2,2,3,5));  //添加返回 []
+    console.log(arr);     //   [1,"asd",2,2,3,5,3,3]
+// 6 join()
+//作用：将数组转换为字符串（基于数组得到一个字符串）
+var str=arr.join("-")
+console.log(str);//1-asd-2-2-3-5-33;
+//7 concat
+//作用：将多个数组合并为一个 对于原数组没有任何影响
+var arr1=[1,2,3];
+var arr2=[4,5,6];
+var newArr=arr1.concat(arr2);
+console.log(newArr);//[1,2,3,4,5,6];
+//8 slice
+// 作用:从数组中截取指定的内容返回不会影响原数组
+var sliced=newArr.slice(1,-1);
+console.log(sliced);//[2,3,4,5];
+//9 sort
+// 作用：实现数组排序的功能  会影响数组本身,返回值无意义
+var arr4=[1,6,7,3,4,9,5,8,1,3];
+var sorted=arr4.sort();
+console.log(sorted);//[1,1,3,3,4,5,6,7,8,9] 例子1
+var arr=[{name:"zhangsan",grade:90},{name:"lisi",grade:85},{name:"wangwu",grade:95}];
+arr.sort(function(a,b){
+    if(a.grade>b.grade){
+        return 1;
+    }else{
+        return -1;
+    }
+});
+console.table(arr);//index          name        grade
+                    // 0           zhangsan     85
+                    // 1           lisi         90
+                    // 2           wangwu       95
+
+//10 forEach
+//参数：回调函数function(value,index){}
+//返回值：返回满足回调函数判断条件的每一个值
+//作用：遍历每一个值
+var arr4=[24.46,92,8,34,71,2,76];
+Array.prototype.myFilter=function(callback){
+    for(var i=0;i<this.length;i++){
+        callback(this[i]);
+    }
+}
+arr4.myFilter(function(value){
+    if(value>60){
+        console.log(value);
+    }
+});//92  71  76
+//11 filter
+//参数：回调函数function(value,index){}
+//作用：过滤；
+//返回值：返回数组中符合条件的所有元素，在回调函数中定义判断条件
+
+var arr5=[45,34,34,69,96,81];
+Array.prototype.myFilter=function(callback){
+    for(var i=0;i<this.length;i++){
+        callback(this[i]);
+    }
+}
+arr5.myFilter(function(value){
+    if(value>60){
+        console.log(value);
+    }
+});//69 96 81
+//12 map
+//参数：回调函数function(value,index){}
+//作用：数组的映射
+//返回值：返回一个新数组，数组中的元素为原始数组元素调用函数的到的值
+var arr1=[1,2,3,4,5];
+Array.prototype.myMap=function(callback){
+    for(var i=0;i<this.length;i++){
+        callback(this[i]);
+    }
+}
+var newarr=[];
+var result=arr1.myMap(function(value){
+    newarr.push(value*value);
+});
+console.log(newarr);//[1,4,9,16,25]
+//13 some
+//参数：回调函数function(value,index){}
+//作用：判断数组中是否存在某个值
+//返回值：true||false
+var arr2=[56,67,77,78,89,23,98];
+Array.prototype.mySome=function(callback){
+    var state=false;
+    for(var i=0;i<this.length;i++){
+        var r=callback(this[i],i);
+        if(r){
+            state=true;
+        }
+    }
+    return state;
+}
+var result=arr2.mySome(function(value){
+    if(value>90){
+        return true;
+    }
+});
+console.log(result);//true
+//14 every
+//参数：回调函数function(value,index){}
+//作用：判断数组中是否所有值都满足条件
+//返回值：true||false
+var arr3=[66,30,67,89,90,99];
+Array.prototype.myEvery=function(callback){
+    var state=true;
+    for(var i=0;i<this.length;i++){
+        var t=callback(this[i],i);
+        if(!t){
+            state=false;
+        }
+    }
+    return state;
+};
+var result=arr3.myEvery(function(value){
+    if(value>60){
+        return true;
+    }
+});
+console.log(result);//false;
+//15 indexOf
+//作用：获取数组中某个值第一次出现的位置的下标 ；
+var arr8=[1,2,3,4,5,1,2,3,4,5];
+console.log(arr8.indexOf(2));//1;
+//16 lastIndexOf
+//作用：获取数组中某个值最后一次出现的位置的下标
+var arr8=[1,2,3,4,5,1,2,3,4,5];
+console.log(arr8.lastIndexOf(2));//6;
+//17 reverse
+//作用：将数组中的内容反向展示
+var arr9=[1,2,3,4,5];
+console.log(arr9.reverse());//[5,4,3,2,1];
+//18 reduce
+//作用：累加  从左往右加；
+// 参数：回调函数function(value,index){}
+var arr6=[[1,2,3],[4,5,6],[7,8,9]];
+arr7=[4,6,8];
+var newArr=arr6.reduce(function(a,b){
+    return a.concat(b);
+},arr7);
+console.log(newArr);//[4,6,8,1,2,3,4,5,6,7,8,9];
+//19  reduceRight
+//作用：累加   从右往左加；
+// 参数：回调函数function(value,index){}
+var arr6=[[1,2,3],[4,5,6],[7,8,9]];
+var newarr=arr6.reduceRight(function(a,b){
+    return a.concat(b);
+});
+console.log(newarr);//[7,8,9,4,5,6,1,2,3];
+//20 find
+//作用：从数组中查找某个元素并返回
+//返回值：满足条件的值
+var arr=[
+    {name:"zhangsan",grade:90},
+    {name:"lisi",grade:95},
+    {name:"wangwu",grade:80}
+];
+var r=arr.find(function(v,i){
+    if(v.grade===90){
+        return true;
+    }
+})
+console.log(r);//{name:"zhangsan",grade:"90"}
+//21 findIndex
+//作用：从数组中查找某个元素并返回他的索引值
+//返回值：查找到的值的下标
+var arr=[
+    {name:"zhangsan",grade:90},
+    {name:"lisi",grade:95},
+    {name:"wangwu",grade:80}
+];
+var r=arr.findIndex(function(v,i){
+    if(v.grade===95){
+        return true;
+    }
+})
+console.log(r);//0;
+//22 copyWithin()
+//参数：参数1 拷贝后放入的起始位置    参数2 开始拷贝的位置（索引值）
+//作用：从数组中的指定位置拷贝元素到数组的另一个指定位置中
+var arr=[1,2,3,4,5,6];
+arr.copyWithin(0,2);
+console.log(arr);//[3,4,5,6,5,6];
+// 23 includes()
+//作用：用来判断数组中是否包含某个元素
+var arr=[1,2,3,4,5];
+console.log(arr.includes(3));
+//24 Array.isArray
+//作用：用于确定传递的值是否是一个 Array
+//返回值：true||false
+var arr=[1,2,3,4,5];
+console.log(Array.isArray(arr));//true;
+//25 Array.from()
+//作用：把类似数（有length的对象）组转换为一个真正的数组
+function fn(){
+    console.log(Array.from(arguments))
+}
+fn(1,2,3,4,5);//[1,2,3,4,5];
+// Array.of
+//作用：创建一个具有可变数量参数的新数组
+var arr=new Array(5);
+var arr=Array.of(5);
+console.log(arr);//5;
+//26 fill
+//作用：对于数组进行填充，把数组中的所有空值填充为某一个值
+var arr10=new Array(10);
+arr10.fill(1);
+console.log(arr10);//[1,1,1,1,1,1,1,1,1,1];
+
+
+
+
+</script>
+</html>
