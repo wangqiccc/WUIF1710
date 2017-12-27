@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//原生对象
+		//push() 在数组的末尾添加一个或者多个元素
+		//返回值   新数组的长度
+		//var arr=[1,2,3,4]
+		//arr.push(5);
+		//console.log(arr);
+		
+		//pop() 删除掉数组最后一个元素只能删掉一个
+		//返回值   删除的元素的内容
+		//var arr=[1,2,3,4]
+		//arr.pop();
+		//console.log(arr);
+		
+		//unshift() 在数组的开始位置添加一个或者多个元素
+		//返回值   新数组的长度
+		//var arr=[1,2,3,4]
+		//arr.unshift(0,1);
+		//console.log(arr);
+		
+		//shift() 在数组的开始位置删除一个元素
+		//返回值   删除的元素的内容
+		//var arr=[1,2,3,4]
+		//arr.shift();
+		//console.log(arr);
+		
+		//splice() 万能的添加删除方法  第一个参数  操作的位置   第二个参数 要删除的个数   后续的参数  表示要添加的内容
+		//返回值  删除的元素组成的数组
+		//var arr=[1,2,3,4]
+		//arr.splice(2,1,4);
+		//console.log(arr);
+		
+		//join() 将数组转化为字符串  本身数组是不会发生变化的  需要返回值来接住它  输出之后就会显示转成字符串之后的数组
+		//返回值  数组转化成的字符串
+		//var arr=[1,2,3,4];
+		//var str=arr.join();
+		//console.log(str);
+		
+		//concat() 将多个数组合并成一个  它对于原数组是没有任何影响的
+		//返回值  多个数组组成的新数组
+		//var num1=[1,2,3,4];
+		//var num2=[5,6,7,8];
+		//var newnum=num1.concat(num2);
+		//console.log(newnum);
+		
+		//slice() 从数组中截取指定内容返回  不会影响原数组
+		//返回值  截取之后的新数组;
+		//var num1=[1,2,3,4];
+		//var str=num1.slice(1,3);
+		//console.log(str);
+		
+		//sort() 实现数组排序的功能  会影响数组本身的
+		//返回值  排序之后的数组
+		//var arr=[1,1,1,2,3,2,3,4,8,4,7];
+		//arr.sort(function(a,b){
+		//	if(a>b){
+		//		return 1;
+		//	}else{
+		//		return -1;
+		//	}
+		//});
+		//console.log(arr);
+		
+		
+		//forEach() 遍历
+		//返回值  数组里的内容;
+		//var arr=[1,23,21,5];
+		//var sum=0;
+		//arr.forEach(function(v,i){
+		//	sum+=v;
+		//	return sum;
+		//});
+		//console.log(sum);
+		
+		//filter() 过滤
+		//返回值  数组过滤后的数据;
+		//var arr=[32, 33, 16, 40];
+		//arr.filter(function(v,i){
+		//	if(v>20){
+		//		return arr=true;
+		//	}else{
+		//		return arr=false;
+		//	}
+		//});
+		//console.log(arr);
+		
+		//映射
+		//原数组被“映射”成对应新数组
+		//var arr=[1,2,3,4,5];
+		//var newarr=arr.map(function(item){
+		//	return item*item;
+		//})
+		//console.log(newarr);
+		
+		//判断  某一个
+		//some 不会改变原有数组
+		//var arr=[21,3,10,45,32].some(function(v,i){
+		//	return v>=10;
+		//});
+		//console.log(arr);
+		
+		//every 每一个
+		//var arr=[21,3,10,45,32].every(function(v,i){
+		//	return v>=10;
+		//});
+		//console.log(arr);
+		
+		//indexOf 获取数组中某个值第一次出现的位置的下标
+		//var arr=[1,2,3,4,5,6,1,2,3,4,5,6]
+		//console.log(arr.indexOf(1))
+		
+		//lastIndexOf    获取数组中某个值最后一次出现的位置的下标
+		//var arr=[1,2,3,4,5,6,1,2,3,4,5,6]
+		//console.log(arr.lastindexOf(1))	
+		
+		//reverse  将数组中的内容反向展示
+		//var arr=[1,2,3,4,5,6];
+		//arr.reverse();
+		//console.log(arr);
+		
+		//reduce  累加器   从左往右加
+		///var arr=[1,2,3,4,5,6]
+		
+		//find() 根据我们设置的条件进行查找   如果有满足条件的  就把这个值返回
+		//var arr=[12, 5, 8, 130, 44];
+		//var newarr=arr.find(function(v,i){
+		//	return v>=15;
+		//});
+		//console.log(newarr);
+		
+		//findIndex()
+		//var arr=[12, 5, 8, 130, 44];
+		//var newarr=arr.findIndex(function(v,i){
+		//	return v>=15;
+		//});
+		//console.log(newarr);
+		
+		//fill() 对于数组进行填充  把数组中的空值填充为某个值
+		//返回值  修改后的数组
+		//var arr=[1,"",3,""];
+		//arr.fill(1);
+		//console.log(arr);
+		
+		//copywithIn()  用数组的某一部分替换掉另外一部分
+		//返回值  修改后的数组
+		//var arr=[1,2,3,4,5,6];
+		//arr.copyWithin(0,3);
+		//console.log(arr);
+		
+		//includes() 用来判断数组当中是否包含某个值的方法
+		//返回值 如果给定的字符串在搜索字符串的任何位置找到就返回true 否则 false
+		//var arr=[1,2,3,4,5,6];
+		//var newarr=arr.includes(3);
+		//console.log(newarr);
+		
+		//Array.isArray() 用来判断一个元素是否是数组
+		//返回值  如果对象是一个数组就返回true 否则 false
+		//var arr=[1,2,3,4,5,6]
+		//Array.isArray(arr);
+		//console.log(Array.isArray(arr));
+		
+		//Array.from()  把一个类数组 （有length的对象）转化为真正的数组
+		//function fn(){
+		//	console.log(Array.from());
+		//}
+		//fn(1,2,3,4,5);
+		
+		//Array.of() 创建一个数组
+		//var arr=Array.of(5,6,7);
+		
+		
+	</script>
+</html>
