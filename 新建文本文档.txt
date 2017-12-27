@@ -1,1 +1,229 @@
-https://jinglong8866.github.io/yidong/
+		//push
+		//参数:要添加的数组
+		//返回值:数组的长度
+		//作用:在数组的末尾添加一个或者多个元素
+		//例子
+//		var arr=[1,2,3,4,5];
+//		var r=arr.push(1,2,3);
+//		console.log(arr);
+//		console.log(r);
+		
+		//pop() 
+		//参数:
+		//作用:删除掉数组的最后一个元素
+		//返回值:删除掉的值
+//		var arr=[1,2,3,4,5,6];
+//		var p=arr.pop();
+//		console.log(arr);
+//		console.log(p);
+		
+		//unshift() 
+		//参数:要添加的数组
+		//作用：在数组的开始位置添加一个或者多个元素
+		//返回值：数组的长度
+//		var arr=[1,2,3,4,5,6];
+//		var p=arr.unshift(7,8,9);
+//		console.log(arr);
+//		console.log(p);
+
+        //：shift() 
+        //参数:
+        //作用：在数据的开始位置删除
+        //返回值：删除掉的元素
+//      var arr=[4,5,6,7,8,9];
+//      var p=arr.shift();
+//      console.log(arr);
+//      console.log(p);
+		
+		//splice() 
+		//参数://第一个参数 操作的位置
+              //第二个参数 要删除的个数
+              //后续的参数  表示要添加的内容
+		//作用：万能的添加删除方法
+		//返回值:删除的数组
+//		var arr=[1,2,3,4,5,6]
+//		var p=arr.splice(1,1,'x')
+//		console.log(arr);
+//		console.log(p);
+
+        //join()
+        //作用:将数组转化为字符串
+        //参数：
+		//返回值：字符串
+//		var arr=[1,2,3,4,5,'x'];
+//		var p=arr.join();
+//		console.log(arr);
+//		console.log(p);
+
+        //concat
+        //作用：将多个数组合并为一个 对于原数组都没影响
+        //参数:要加合并的数组名称
+        //返回值：合并的数组
+//      var arr1=[1,2,3,4];
+//      var arr2=[4,5,6,7];
+//      var he=num1.concat(arr2);
+//      console.log(arr1);
+//      console.log(arr2);
+//      console.log(he);
+
+        //slice 
+        //作用：从数组中截取指定内容返回 不会影响原数组
+        //参数； 需要截取哪段 从开始位置到结束位置；
+        //返回值:截取的数值
+//      var arr=[1,2,3,4,5,6,7,8];
+//      var h=arr.slice(1,2);
+//      console.log(arr);
+//      console.log(h);
+
+		//sort 
+		//作用：实现数组排序的功能 会影响数组的本身     单数  输出至为数组本身
+		//参数:
+		//返回值:排序的数组
+//		var arr=[1,5,7,6,9,8,];
+//		var p=arr.sort();
+//		console.log(arr);
+//		console.log(p);
+
+        //forEach 遍历
+        //作用：就是把数组中的数据一个一个的全部取出来
+        //返回值：吧元素都提取出来
+        //参数：value元素 index下标
+//		var arr=[1,5,6,7,9,5,];
+//		arr.forEach(function(value,index){
+//			console.log(value);
+//			console.log(index);
+//			
+//		})
+
+        //filter() 
+        //作用 创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。
+        //返回值 筛选出来满足结果的数值
+//      var arr=[90,82,65,54,20,40];
+//      var newarr=arr.filter(function(a,i){
+//      	if(a>60){
+//      		return true;
+//      	}
+//      })
+//      console.log(newarr);
+
+ 		//map() 映射
+ 		//作用：
+ 		//返回值 平方的后数组的结果
+// 		var arr=[1,2,3,4,5];
+// 		var c=arr.map(function(v,i){
+// 			return v*v	
+// 		});
+// 		console.log(c);
+
+        //some() 
+        //作用：有一个满足的条件
+        //返回值：有一个满足条件时候返回true
+//      var arr=[98,65,78,82,96];
+//      var result=arr.some(function(v,i){
+//      	if(v>90){
+//      		return true;
+//      	}	
+//      })
+//      console.log(result);
+
+        //every()
+        //作用：每一个都满足条件
+        //返回值 每一个满足指定条件时候返回值为true 
+//      var arr=[95,78,65,87,56]
+//      var result=arr.every(function(v,i){
+//      	if(v>90){
+//      		return true;
+//      	}
+//      	
+//      })
+//      console.log(result);
+
+        //indexOf 
+        //作用：获取数组中某个值第一次出现的位置的下标.
+        //返回值 第一次出现位置的下标
+        //参数 某个数值
+//      var arr=[1,5,2,4,2,1];
+//      console.log(arr.indexOf(1));
+        
+        //lastTndexOf
+        //作用：获取数组中某个值最后一次出现位置的下标
+        //返回值；某个值最后一次出现的下标
+        //参数：某个值
+//      var arr=[1,2,3,1,5,4];
+//      console.log(arr.lastIndexOf(1));
+
+		//reverse 
+		//作用:将数组中的内容反向展示 (对数组有影响)
+		//返回值 ：反向展示的数组
+//		var arr=[1,2,7,8,5,6];
+//		arr.reverse();
+//		console.log(arr);
+
+		//reduce
+		//作用:累加器  从左到右
+		//返回值：累加结果
+//		var arr=[1,2,3,4,5,6];
+//		var jia=arr.reduce(function(a,b){
+//			return a+b;
+//			
+//		})
+//		console.log(jia);
+
+        //	reduceRight 
+        // 作用 从右向左累加
+        //返回值：累加结果
+        
+//      var arr=[1,2,3,4,5,6];
+//		var jia=arr.reduceRight(function(a,b){
+//			return a+b;
+//			
+//		})
+//		console.log(jia);
+
+
+        //find() 
+        //作用：根据我们设置的条件进行查找，如果有满足条件的 就把这个值返回
+        //返回值 满足条件的话 就返回满足条件的值
+//      var arr=[1,2,3,4,5,6];
+//      var r=arr.find(function(v,i){
+//      	if(v*v==4){
+//      		return true
+//      	}        	
+//      })
+//      console.log(r);
+
+        //findIndex()
+        //作用：根据我们设置的条件进行查找 如果有满足条件的 就吧这个值的位置返回
+        //返回值：满足条件数值的位置
+//      var arr=[1,2,5,4,8,6];
+//      var r=arr.findIndex(function(v,i){
+//      	if(v*v==4){
+//      		return true;
+//      	}
+//      })
+//      console.log(r);
+
+       //fill()
+       //作用 对于数组里面的空值进行一个填充 吧数组中的空值填充为某个值
+       //返回值 填充后的数组
+       //参数 第一个填充内容 第二个填充开始位置 第三个 填充结束位置
+//     var arr=[1,2,3,,5,6];
+//     var newarr=arr.fill(1,3,4);
+//     console.log(newarr);
+
+       //copyWithIn() 
+       //作用：用数组的某一部分替换掉另一部分
+       //返回值 替换后的数组
+       //参数：需要替换的目标 复制起始位置 复制结束位置
+//     var arr=[1,2,3,4,5,6]; 
+//     arr.copyWithin(0,2,3);
+//     console.log(arr);
+
+       //includes()
+       //作用：用来判断数组当中是否包含某个值的方法
+       //返回值：如果包含 返回true
+       //参数：包含的值
+//     var arr=[1,2,3,4,5,6];
+//     var r=arr.includes(2);
+//     console.log(arr);
+//     console.log(r);
