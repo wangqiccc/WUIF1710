@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //对象
+    //分类
+    //原生对象:js内部自带的对象
+    // Number()
+    //Array()
+    //string()
+    //Function()
+    //Date()
+    //RegExp()正则对象
+    //Error()错误对象
+    //Math()数学对象
+
+    //Array
+//    var arr=new Array();
+
+    //ES3 兼容IE678..这些浏览器
+    //push   在数组的末尾添加一个或者多个元素
+    var arr=[1,2,3,4,5,"ad"];
+    var newarr=[];
+    for (var i=0;i<arr.length;i++){
+        if(typeof arr[i]==="number"){
+            newarr.push(arr[i])
+        }
+    }
+    console.log(arr);
+    //pop() 删除掉数组的最后一个元素
+      console.log(arr);
+      var r=arr.pop();
+      console.log(arr);
+      console.log(r);
+
+    //unshift() 在数组的开始位置添加一个或者多个元素
+        var r=arr.unshift(7,7,7,"wz",true);
+        console.log(arr);
+        console.log(r);
+    //shift 在数据的开始位置删除一个元素
+        var r=arr.shift();
+        console.log(arr);
+        console.log(r);
+
+    //splice 万能的添加删除方法
+    //* 第一个参数 操作的位置
+    //* 第二个参数 要删除的个数
+    //* 后续的参数  表示要添加的内容
+        arr.splice(1,1,"x");
+        console.log(arr);
+    //里面的1，1 对应 第一第二两个参数  x为添加的
+//        var str="";
+//            for (var i=0;i<arr.length;i++){
+//                str+=arr[i]+","
+//        }
+//        console.log(str);
+    //join() 将数组转化为字符串
+      var r=arr.join("");
+        console.log(r);
+//        console.log(str);
+    //concat 将多个数组合并成一个 对于原数组没有任何影响
+        var arr1=[1,2,3];
+        var arr2=[4,5,6];
+        var newarr=arr1.concat(arr2);
+        console.log(arr1);
+        console.log(arr2);
+        console.log(newarr);   //拼接arr1+arr2
+    //slice 从数组中截取指定内容返回  不会影响原数组
+        var arr3=newarr.slice(1,-1);
+        console.log(newarr);
+        console.log(arr3);
+    //sort 实现数组排序的功能 会影响数组本身的
+        var arr=[1,3,6,3,6,3,2,31];
+        var r=arr.sort(function (a,b) {
+            if (a>b){
+                return -1;
+            }else if(a<b){
+                return 1;
+            }
+        });
+        console.log(arr);
+        arr.sort();
+        console.log(arr);
+    //ES5 兼容IE9 IE10...
+        arr.forEach(function (value,index){
+            console.log(value);
+            console.log(index);
+        })
+        Array.prototype.myforEach=function(callback){
+            for(var i=0;i<this.length;i++){
+                callback(this[i],i)
+            }
+        };
+        arr.myforEach(function (value,index) {
+            console.log(value);
+            console.log(index);
+        });
+        var arr=[98,87,54,42,22];
+//        var newarr=[];
+//        arr.forEach(function(v){
+//            if(v>20){
+//                newarr.push(v)
+//            }
+//        });
+//        console.log(newarr);
+    //indexof获取数组中某个值第一次出现的位置的下标 lastIndexof  获取数组中某个值最后一次出现的位置的下标
+        var arr=[1,2,3,4,5,1,2,3,4,5];
+        console.log(arr.indexOf(1));
+        console.log(arr.lastIndexOf(1));
+
+
+    //reverse 将数组中的内容反向展示
+        arr.reverse();
+        console.log(arr);
+    //reduce  累加器  reduceRight
+        var arr=[1,2,3,4,5];
+        var num=arr.reduce(function (a,b) {
+            console.log(a,b);
+        })
+    //ES5中 forEash  filter  map  some every indexof lastindexof   reverse  reduce reduceRight  新增的十个方法
+    //ES6  可能有一些新版本浏览器都不支持
+    //find() 根据我们这只的条件进行查找如果有满足条件的 就把这个值返回
+//        var r=arr.find(function(v,i) {
+//            if (v * v === 4) {
+//                return true
+//            }
+//        };
+//        console.log(r);
+    //fill（） 对于数组进行填充 把数组中的空值填充为某个值
+    var arr=new Array(10);
+    arr.fill(1);
+    console.log(arr);
+    //copyWithIn() 用数组的某一部分替换掉另一部分
+        var  arr=[1,2,3,4,5];
+        arr.copyWithIn(0,2);
+        console.log(arr);
+    //inCludes() 用来判断数组当中是否包含某个值的方法
+        console.log(arr.includes(3));
+    //Array
+    console.log(Array.isArray(111));
+    //把一个类数组 （有length的对象）转化为真正的数组
+    function fn() {
+        console.log(Array.from(arguments));
+    }
+    fn(1,2,3,4,5);
+    //  Arrary.from();
+    var arr=new Array(5,6,7);
+    var arr=Array.of(5,6,7);
+    console.log(arr);
+    //宿主对象：浏览器BOM  文档对象DOM
+    //DOM 文档对象模型
+    //document 对象
+    //每一个标签
+    console.log(document)
+    console.dir(document)
+    //属性
+    console.log(document.title);
+    document.title="hello";
+    //URL
+    console.log(document.URL);
+    //body
+    console.log(document.body);
+    //all
+    console.log(document.all);
+//    得到的是html标签的集合
+    //images
+
+    //links
+        console.log(document.links);
+
+    //anchors  获取的是锚点  a标签
+        console.log(document.anchors);
+    //方法
+    //querySelector(选择器) 根据我们传入的选择器 获取到页面中对应的元素对象
+    //qusrySelectorALL(选择器）根据我们传入的选择器 获取到页面中对应的与元素集合
+</script>
+</body>
+</html>
